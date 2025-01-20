@@ -1,4 +1,4 @@
-package aungbophyoe.github.io.basemvijc.ui.theme
+package aungbophyoe.github.io.basemvijc.core.resource.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

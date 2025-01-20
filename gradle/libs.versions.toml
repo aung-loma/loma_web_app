@@ -1,32 +1,156 @@
 [versions]
-agp = "8.7.0"
-kotlin = "2.0.0"
-coreKtx = "1.15.0"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.7"
-activityCompose = "1.9.3"
-composeBom = "2024.04.01"
+#Compose and Androidx
+core-ktx = "1.15.0"
+kotlinxCollectionsImmutable = "0.3.7"
+lifecycle-runtime-ktx = "2.8.7"
+lifecycle-compose = "2.8.7"
+activity-compose = "1.10.0"
+androidx-compose = "2025.01.00"
+
+#Sheets In Compose
+sheets-compose = "0.6.0-alpha02"
+
+#Compose navigation and Viewmodel
+lifecycle-version = "2.8.7"
+navigation-compose = "2.8.5"
+
+#System UI Controller - Accompanist
+accompanist-systemuicontroller = "0.34.0"
+accompanist-navigation-animation = "0.30.0"
+accompanist-insets = "0.25.1"
+
+accompanistFlowlayout = "0.23.1"
+accompanist-pager = "0.30.0"
+
+#Hilt Android
+hilt-android = "2.51.1"
+hilt-navigation-compose = "1.2.0"
+
+#retrofit and logging interceptor
+retrofit = "2.11.0"
+converter-gson = "2.9.0"
+okhttp = "4.12.0"
+
+#Chucker
+chucker_version = "4.0.0"
+
+#Encrypted Shared preferences and credientials Api's
+security-crypto = "1.0.0"
+security-identity-credential = "1.0.0-alpha03"
+security-app-authenticator = "1.0.0-beta01"
+
+#Paging 3
+paging-runtime = "3.3.5"
+
+#Coil
+coil = "2.7.0"
+
+#Paper Db for local data
+paper_version = "2.7.2"
+
+reorderable = "2.3.0"
+kotlinx-serialization-json = "1.6.3"
+
+#Test Sdk's Version
+junit-test = "4.13.2"
+androidx-test-ext-test = "1.2.1"
+androidx-test-espresso-test = "3.6.1"
+uiTextGoogleFonts = "1.7.6"
+
+# permission
+accompanistPermissions = "0.34.0"
+
+# timer log
+utils-timber = "5.0.1"
+kotlinVersion = "1.9.0"
+constraintlayoutCompose = "1.1.0"
+
+jsoup = "1.14.3"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+#Compose and Androidx
+kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinxCollectionsImmutable" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+compose-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle-compose" }
+androidx-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-ui-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+#Compose navigation and Viewmodel
+lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-version" }
+lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-version" }
+lifecycle-viewmodel-savedstate = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-savedstate", version.ref = "lifecycle-version" }
+navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation-compose" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+
+#System UI Controller - Accompanist
+accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist-systemuicontroller" }
+accompanist-navigation-animation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "accompanist-navigation-animation" }
+accompanist-insets = { group = "com.google.accompanist", name = "accompanist-insets", version.ref = "accompanist-insets" }
+
+#pager library
+accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanistFlowlayout" }
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist-pager" }
+accompanist-pager-indicators = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist-pager" }
+
+#Hilt Android
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt-android" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt-android" }
+
+
+#Retrofit and logging interceptor, okhttp
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converter-gson" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+
+
+#Chuker
+chuckerDebug = { group = "com.github.chuckerteam.chucker", name = "library", version.ref = "chucker_version" }
+chuckerRelease = { group = "com.github.chuckerteam.chucker", name = "library-no-op", version.ref = "chucker_version" }
+
+#Encrypted Shared preferences and credientials Api's
+security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "security-crypto" }
+security-identity-credential = { group = "androidx.security", name = "security-identity-credential", version.ref = "security-identity-credential" }
+security-app-authenticator = { group = "androidx.security", name = "security-app-authenticator", version.ref = "security-app-authenticator" }
+
+#Paper Db for local data
+paper-db = { group = "io.github.pilgr", name = "paperdb", version.ref = "paper_version" }
+
+#Paging 3
+paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.ref = "paging-runtime" }
+paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging-runtime" }
+
+#Coil
+coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
+
+
+#Unit test Sdk's
+junit-junit-test = { group = "junit", name = "junit", version.ref = "junit-test" }
+androidx-test-ext-test = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-test" }
+androidx-test-espresso-test = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-test-espresso-test" }
+compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+compose-ui-tooling-test = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-manifest-test = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+
+# permissions
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
+
+# timer log
+utils-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "utils-timber" }
+androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
+jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinVersion" }
+nav-safe-args = { id = "androidx.navigation.safeargs.kotlin", version = "2.7.0" }
+
 

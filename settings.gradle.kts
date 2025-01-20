@@ -17,6 +17,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        create("appPlugins") {
+            from(files("gradle/appPlugins.versions.toml"))
+        }
+    }
 }
 
 rootProject.name = "BaseMVIJC"

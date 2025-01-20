@@ -1,0 +1,20 @@
+[versions]
+android-application-classpath = "8.7.3"
+org-jetbrain-kotlin = "2.0.0"
+kotlin-parcalize = "2.0.0"
+hilt-plugin = "2.51.1"
+google-prototuf = "0.9.4"
+kotlin-ksp = "2.0.0-1.0.21"
+googleGmsGoogleServices = "4.4.2"
+
+[libraries]
+
+[plugins]
+com-android-application = { id = "com.android.application", version.ref = "android-application-classpath" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrain-kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "org-jetbrain-kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin-parcalize" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt-plugin" }
+protobuf = { id = "com.google.protobuf", version.ref = "google-prototuf" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlin-ksp" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
