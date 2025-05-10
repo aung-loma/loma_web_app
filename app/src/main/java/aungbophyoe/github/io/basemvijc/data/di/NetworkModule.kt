@@ -1,12 +1,12 @@
 package aungbophyoe.github.io.basemvijc.data.di
 
 import android.content.Context
-import aungbophyoe.github.io.basemvijc.BuildConfig
 import aungbophyoe.github.io.basemvijc.data.remote.ApiService
 import aungbophyoe.github.io.basemvijc.data.remote.NetworkMonitor
 import aungbophyoe.github.io.basemvijc.data.remote.interceptors.ErrorHandlingInterceptor
 import aungbophyoe.github.io.basemvijc.data.remote.interceptors.HeaderInterceptor
 import com.google.gson.GsonBuilder
+import com.lomawebview.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -68,7 +68,7 @@ object NetworkModule {
         errorHandlingInterceptor: ErrorHandlingInterceptor,
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(
                 OkHttpClient.Builder().apply {
                     writeTimeout(WRITE_TIME, TimeUnit.SECONDS)

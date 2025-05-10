@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.VariantDimension
+
 plugins {
     alias(appPlugins.plugins.com.android.application)
     alias(appPlugins.plugins.org.jetbrains.kotlin.android)
@@ -24,7 +26,18 @@ android {
     }
 
     signingConfigs {
-       // setup signing config
+        create(ConfigData.DEBUG_CONFIG) {
+            keyAlias = KeyStoreData.KEY_ALIAS
+            keyPassword = KeyStoreData.KEYSTORE_PASSWORD
+            storeFile = file(KeyStoreData.KEYSTORE_FILE_PATH)
+            storePassword = KeyStoreData.KEYSTORE_PASSWORD
+        }
+        create(ConfigData.RELEASE_CONFIG) {
+            keyAlias = KeyStoreData.KEY_ALIAS
+            keyPassword = KeyStoreData.KEYSTORE_PASSWORD
+            storeFile = file(KeyStoreData.KEYSTORE_FILE_PATH)
+            storePassword = KeyStoreData.KEYSTORE_PASSWORD
+        }
     }
 
     buildTypes {
@@ -33,7 +46,7 @@ android {
             isDebuggable = true
             isShrinkResources = false
             isJniDebuggable = false
-            /*signingConfig = signingConfigs.getByName(ConfigData.DEBUG_CONFIG)*/
+            signingConfig = signingConfigs.getByName(ConfigData.DEBUG_CONFIG)
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
@@ -43,7 +56,7 @@ android {
             isDebuggable = false
             isShrinkResources = false
             isJniDebuggable = false
-            /*signingConfig = signingConfigs.getByName(ConfigData.RELEASE_CONFIG)*/
+            signingConfig = signingConfigs.getByName(ConfigData.RELEASE_CONFIG)
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
@@ -58,7 +71,9 @@ android {
             dimension = ConfigData.Flavors.FLAVOR
             versionCode = ConfigData.DevVersion.VERSION_CODE
             versionName = ConfigData.DevVersion.VERSION_NAME
-            /*signingConfig = signingConfigs.getByName(ConfigData.DEBUG_CONFIG)*/
+            signingConfig = signingConfigs.getByName(ConfigData.DEBUG_CONFIG)
+            buildConfigString(key = UrlConfig.Names.BASE_URL, value = UrlConfig.Dev.BASE_URL)
+            buildConfigString(key = UrlConfig.Names.MERCHANT_CODE_NAME, value = UrlConfig.Dev.MERCHANT_CODE)
             resValue("string", "app_name", ConfigData.Flavors.DEV.plus(" ${ConfigData.APP_NAME}"))
         }
 
@@ -67,7 +82,9 @@ android {
             dimension = ConfigData.Flavors.FLAVOR
             versionCode = ConfigData.SitVersion.VERSION_CODE
             versionName = ConfigData.SitVersion.VERSION_NAME
-            /*signingConfig = signingConfigs.getByName(ConfigData.DEBUG_CONFIG)*/
+            signingConfig = signingConfigs.getByName(ConfigData.DEBUG_CONFIG)
+            buildConfigString(key = UrlConfig.Names.BASE_URL, value = UrlConfig.Sit.BASE_URL)
+            buildConfigString(key = UrlConfig.Names.MERCHANT_CODE_NAME, value = UrlConfig.Sit.MERCHANT_CODE)
             resValue("string", "app_name", ConfigData.Flavors.SIT.plus(" ${ConfigData.APP_NAME}"))
         }
 
@@ -76,7 +93,9 @@ android {
             dimension = ConfigData.Flavors.FLAVOR
             versionCode = ConfigData.ProdVersion.VERSION_CODE
             versionName = ConfigData.ProdVersion.VERSION_NAME
-            /*signingConfig = signingConfigs.getByName(ConfigData.RELEASE_CONFIG)*/
+            signingConfig = signingConfigs.getByName(ConfigData.RELEASE_CONFIG)
+            buildConfigString(key = UrlConfig.Names.BASE_URL, value = UrlConfig.Prod.BASE_URL)
+            buildConfigString(key = UrlConfig.Names.MERCHANT_CODE_NAME, value = UrlConfig.Prod.MERCHANT_CODE)
             resValue("string", "app_name", ConfigData.APP_NAME)
         }
     }
@@ -183,4 +202,13 @@ dependencies {
 
     implementation(libs.jsoup)
     implementation(libs.kotlinx.collections.immutable)
+    implementation(libs.androidx.core.splashscreen)
+}
+
+fun VariantDimension.buildConfigBoolean(key: String, value: String) {
+    buildConfigField("Boolean", key, value)
+}
+
+fun VariantDimension.buildConfigString(key: String, value: String) {
+    buildConfigField("String", key, value)
 }

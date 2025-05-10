@@ -80,6 +80,38 @@ private fun String.replaceWrongSting(): String {
     return this.replace("\"", "")
 }
 
+fun getInternetError(
+    code: Int? = 1001,
+    title: String? = "No Internet Connection",
+    message: String? = "Please check your internet connection",
+    type: Int? = ApiExceptionConstants.INTERNET_ERROR
+): CustomErrorException {
+    return CustomErrorException(
+        getErrorMessage(
+            code,
+            title,
+            message,
+            type
+        )
+    )
+}
+
+fun getTimeOutError(
+    code: Int? = 504,
+    title: String? = "Error",
+    message: String? = "Timeout Exception",
+    type: Int? = ApiExceptionConstants.REQUEST_TIMEOUT_ERROR
+): CustomErrorException {
+    return CustomErrorException(
+        getErrorMessage(
+            code,
+            title,
+            message,
+            type
+        )
+    )
+}
+
 @Keep
 class CustomErrorException(override val message: String = "Server Error") : IOException(message)
 

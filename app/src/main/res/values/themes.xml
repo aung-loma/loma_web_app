@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.BaseMVIJC" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.BaseMVIJC" parent="Theme.Material3.Light.NoActionBar" >
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowDisablePreview">false</item>
+        <item name="android:windowBackground">@drawable/splash_light</item>
+    </style>
 </resources>

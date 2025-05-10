@@ -1,31 +1,28 @@
 package aungbophyoe.github.io.basemvijc.data.dto
 
 import androidx.annotation.Keep
-import aungbophyoe.github.io.basemvijc.data.remote.interceptors.ApiExceptionConstants
+import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 /**
  * Created by aungb on 1/22/2025.
  */
-
+@Keep
 @Serializable
 open class BaseResponse(
+    @SerializedName("code")
     val code: Int? = null,
-    val message: String? = null,
-)
-
-
-@Keep
-data class ApiMessageData(
-    val errorCode: String? = null,
-    val title: String? = "",
-    val description: String? = "",
+    @SerializedName("message")
+    val message: ResponseMessage? = null,
+    @SerializedName("status")
+    val status: Boolean? = null
 )
 
 @Keep
-data class ErrorMessageData(
-    val code: Int = ApiExceptionConstants.UNKNOWN_ERROR,
-    val title: String? = null,
-    val message: String? = null,
-    val type: Int? = null
+@Serializable
+data class ResponseMessage(
+    @SerializedName("title")
+    val title : String? = null,
+    @SerializedName("description")
+    val description : String? = null,
 )

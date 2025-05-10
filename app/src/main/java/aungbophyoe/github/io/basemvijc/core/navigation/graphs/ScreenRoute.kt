@@ -2,6 +2,7 @@ package aungbophyoe.github.io.basemvijc.core.navigation.graphs
 
 import androidx.annotation.Keep
 import aungbophyoe.github.io.basemvijc.data.local.SampleData
+import aungbophyoe.github.io.basemvijc.data.local.WebViewArg
 import kotlinx.serialization.Serializable
 
 /**
@@ -18,5 +19,5 @@ sealed class ScreenRoute {
     data object HomeScreen : ScreenRoute()
 
     @Serializable
-    data class DetailScreen(val data: SampleData) : ScreenRoute()
+    data object WebViewScreen : ScreenRoute()
 }

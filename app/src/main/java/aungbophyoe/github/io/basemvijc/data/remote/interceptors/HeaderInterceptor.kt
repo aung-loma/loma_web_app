@@ -12,7 +12,7 @@ class HeaderInterceptor @Inject constructor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
         val newRequest = originalRequest.newBuilder().apply {
-            addHeader("Accept", "*/*")
+            addHeader("Accept", "application/json")
             addHeader("Content-Type", "application/json")
         }
         return chain.proceed(newRequest.build())

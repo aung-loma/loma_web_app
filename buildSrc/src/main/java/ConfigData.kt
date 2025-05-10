@@ -3,9 +3,9 @@ object ConfigData {
     const val COMPILE_SDK = 35
     const val MIN_SDK = 24
     const val TARGET_SDK = 35
-    const val NAMESPACE = "aungbophyoe.github.io.basemvijc"
-    const val APPLICATION_ID = "com.basemvijc"
-    const val APP_NAME = "BaseMVI"
+    const val NAMESPACE = "com.lomawebview"
+    const val APPLICATION_ID = "com.lomawebview.android"
+    const val APP_NAME = "高质人生"
     const val DEBUG_CONFIG = "debugConfig"
     const val RELEASE_CONFIG = "releaseConfig"
     const val DEBUG = "debug"

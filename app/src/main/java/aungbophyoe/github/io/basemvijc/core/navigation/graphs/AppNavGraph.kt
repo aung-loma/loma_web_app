@@ -8,12 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import aungbophyoe.github.io.basemvijc.core.navigation.anim.slideIntoEnterTransition
-import aungbophyoe.github.io.basemvijc.core.navigation.anim.slideOutExitTransition
 import aungbophyoe.github.io.basemvijc.core.navigation.anim.screenSlideIn
 import aungbophyoe.github.io.basemvijc.core.navigation.anim.screenSlideOut
+import aungbophyoe.github.io.basemvijc.core.navigation.anim.slideIntoEnterTransition
+import aungbophyoe.github.io.basemvijc.core.navigation.anim.slideOutExitTransition
 import aungbophyoe.github.io.basemvijc.core.uiComponents.dialog.DialogHost
 import aungbophyoe.github.io.basemvijc.presentation.home.navigation.homeGraph
+import aungbophyoe.github.io.basemvijc.presentation.webView.navigation.webViewGraph
 
 /**
  * Created by aungb on 1/22/2025.
@@ -27,12 +28,13 @@ fun AppNavGraph(navController: NavHostController) {
             .background(color = MaterialTheme.colorScheme.background)
             .navigationBarsPadding(),
         navController = navController,
-        startDestination = ScreenRoute.HomeScreen,
+        startDestination = ScreenRoute.WebViewScreen,
         enterTransition = slideIntoEnterTransition,
         exitTransition = slideOutExitTransition,
         popEnterTransition = { screenSlideIn() },
         popExitTransition = { screenSlideOut() }
     ) {
+        webViewGraph()
         homeGraph()
     }
     DialogHost()
